@@ -56,7 +56,7 @@ export const Home=()=> {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/post-ad"
+              href="/ad"
               className="bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-8 py-3.5 rounded-xl transition-colors shadow-xl text-base"
             >
               Post Free Ad
@@ -140,7 +140,7 @@ export const Home=()=> {
               <Tag size={28} className="mb-3 opacity-80" />
               <h3 className="text-xl font-bold mb-1">Post for Free</h3>
               <p className="text-green-100 text-sm mb-4">List your items in under 2 minutes</p>
-              <Link href="/post-ad" className="bg-white/20 hover:bg-white/30 font-semibold px-4 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
+              <Link href="/ad" className="bg-white/20 hover:bg-white/30 font-semibold px-4 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
                 Get Started <ArrowRight size={14} />
               </Link>
             </div>
@@ -159,12 +159,14 @@ export const Home=()=> {
                 <button
                   onClick={() => setActiveTab('featured')}
                   className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${activeTab === 'featured' ? 'bg-white text-[#1a237e] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                  suppressHydrationWarning
                 >
                   Featured
                 </button>
                 <button
                   onClick={() => setActiveTab('recent')}
                   className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${activeTab === 'recent' ? 'bg-white text-[#1a237e] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                  suppressHydrationWarning
                 >
                   Recent
                 </button>

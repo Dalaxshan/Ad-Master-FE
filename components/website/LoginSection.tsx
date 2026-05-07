@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, ChevronRight } from 'lucide-react';
 
 export default function LoginSection() {
@@ -22,7 +24,7 @@ export default function LoginSection() {
       <div className="w-full max-w-md">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6 justify-center">
-          <Link to="/" className="hover:text-[#1a237e]">Home</Link>
+          <Link href="/" className="hover:text-[#1a237e]">Home</Link>
           <ChevronRight size={14} />
           <span className="text-gray-900 font-medium">Sign In</span>
         </nav>
@@ -30,7 +32,7 @@ export default function LoginSection() {
         <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-8">
           {/* Logo */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-2">
               <div className="bg-[#1a237e] rounded-lg p-2">
                 <span className="text-white font-extrabold text-xl leading-none">W</span>
               </div>
@@ -64,7 +66,7 @@ export default function LoginSection() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-semibold text-gray-700">Password</label>
-                <Link to="/forgot-password" className="text-xs text-[#1a237e] hover:underline">Forgot password?</Link>
+                <Link href="/forgot-password" className="text-xs text-[#1a237e] hover:underline">Forgot password?</Link>
               </div>
               <div className="relative">
                 <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -114,7 +116,7 @@ export default function LoginSection() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Don&apos;t have an account?{' '}
-            <Link to="/register" className="text-[#1a237e] font-semibold hover:underline">Register Free</Link>
+            <Link href="/register" className="text-[#1a237e] font-semibold hover:underline">Register Free</Link>
           </p>
         </div>
       </div>

@@ -1,4 +1,7 @@
-import { useParams, Link } from 'react-router-dom';
+"use client";
+
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { ChevronRight, Grid2X2, List } from 'lucide-react';
 import { useState } from 'react';
 import { categories } from '../../data/categories';
@@ -17,7 +20,7 @@ export default function CategorySection() {
         <div className="text-center">
           <p className="text-5xl mb-4">😕</p>
           <h2 className="text-xl font-bold text-gray-900 mb-2">Category not found</h2>
-          <Link to="/" className="text-[#1a237e] font-semibold hover:underline">Back to Home</Link>
+          <Link href="/" className="text-[#1a237e] font-semibold hover:underline">Back to Home</Link>
         </div>
       </div>
     );
@@ -28,7 +31,7 @@ export default function CategorySection() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-[#1a237e]">Home</Link>
+          <Link href="/" className="hover:text-[#1a237e]">Home</Link>
           <ChevronRight size={14} />
           <span className="text-gray-900 font-medium">{category.name}</span>
         </nav>
@@ -47,7 +50,7 @@ export default function CategorySection() {
             {category.subcategories.map(sub => (
               <Link
                 key={sub}
-                to={`/search?category=${category.name}&subcategory=${sub}`}
+                href={`/search?category=${category.name}&subcategory=${sub}`}
                 className="bg-white/70 hover:bg-white border border-white/50 text-gray-700 text-sm px-3 py-1.5 rounded-lg font-medium transition-colors"
               >
                 {sub}
@@ -106,7 +109,7 @@ export default function CategorySection() {
             {categories.filter(c => c.id !== id).map(cat => (
               <Link
                 key={cat.id}
-                to={`/category/${cat.id}`}
+                href={`/category/${cat.id}`}
                 className="group bg-white border border-gray-100 rounded-xl p-4 text-center hover:shadow-md hover:border-blue-200 transition-all"
               >
                 <span className="text-2xl">{cat.icon}</span>

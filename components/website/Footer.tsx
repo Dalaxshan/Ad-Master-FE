@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -19,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
           <Link
-            href="/post-ad"
+            href="/ad"
             className="bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-8 py-3 rounded-xl transition-colors shadow-lg whitespace-nowrap"
           >
             Post Free Ad
@@ -32,19 +33,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-yellow-400 rounded-lg p-2">
-                <span className="text-[#1a237e] font-extrabold text-lg leading-none">
-                  W
-                </span>
-              </div>
-              <div>
-                <span className="text-white font-extrabold text-xl">
-                  WebAds
-                </span>
-                <span className="text-yellow-400 font-extrabold text-xl">
-                  .lk
-                </span>
-              </div>
+             
+                <Image src="/logo.png" alt="WebAds Logo" width={184} height={24} />
+          
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-5">
               Sri Lanka&apos;s #1 online classifieds marketplace. Buy, sell, and
@@ -104,7 +95,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               {[
-                { label: "Post a Free Ad", href: "/post-ad" },
+                { label: "Post a Free Ad", href: "/ad" },
                 { label: "Sign In", href: "/login" },
                 { label: "Register", href: "/register" },
                 { label: "My Account", href: "/profile" },

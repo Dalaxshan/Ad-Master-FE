@@ -1,7 +1,7 @@
 import { Ad } from "@/type";
-import { MapPin, Clock, Eye, Heart, Star} from "lucide-react";
+import { MapPin, Clock, Eye, Heart, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-
 
 interface AdCardProps {
   ad: Ad;
@@ -19,9 +19,11 @@ export default function AdCard({ ad, layout = "grid" }: AdCardProps) {
       <Link href={`/ad/${ad.id}`} className="group block">
         <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-md hover:border-blue-100 transition-all duration-200 flex gap-4 p-3">
           <div className="relative flex-shrink-0 w-36 h-28 rounded-lg overflow-hidden bg-gray-100">
-            <img
+            <Image
               src={ad.image}
               alt={ad.title}
+              width={144}
+              height={112}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             {ad.isPremium && (

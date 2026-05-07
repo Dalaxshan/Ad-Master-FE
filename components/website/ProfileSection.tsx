@@ -107,7 +107,7 @@ export default function ProfileSection() {
                 <div className="flex items-center justify-between mb-5">
                   <h2 className="text-xl font-bold text-gray-900">My Ads</h2>
                   <Link
-                    href="/post-ad"
+                    href="/ad"
                     className="flex items-center gap-2 bg-[#1a237e] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#283593] transition-colors"
                   >
                     <Plus size={16} /> Post New Ad

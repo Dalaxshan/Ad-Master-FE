@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <Image src="/logo.png" alt="WebAds.lk" width={150} height={60} className="rounded-lg" />
+            <Image src="/logo.png" alt="WebAds.lk" width={150} height={120} className="rounded-lg" style={{ height: 'auto' }} />
           </Link>
 
           {/* Search bar */}
@@ -51,6 +51,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setDistrictOpen(!districtOpen)}
                 className="flex items-center gap-1.5 bg-gray-100 border border-gray-200 border-r-0 rounded-l-lg px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap"
+                suppressHydrationWarning
               >
                 <MapPin size={14} className="text-[#1a237e]" />
                 <span className="max-w-[100px] truncate">{selectedDistrict}</span>
@@ -78,10 +79,12 @@ export default function Navbar() {
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search for anything..."
               className="flex-1 border border-gray-200 md:rounded-none rounded-l-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#1a237e] focus:ring-1 focus:ring-[#1a237e]"
+              suppressHydrationWarning
             />
             <button
               type="submit"
               className="bg-[#1a237e] hover:bg-[#283593] text-white px-5 py-2.5 rounded-r-lg transition-colors flex items-center gap-2 font-medium text-sm"
+              suppressHydrationWarning
             >
               <Search size={16} />
               <span className="hidden sm:block">Search</span>
@@ -90,11 +93,11 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-1 sm:gap-2">
-            <button className="hidden sm:flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors relative">
+            <button className="hidden sm:flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors relative" suppressHydrationWarning>
               <Bell size={20} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
-            <button className="hidden sm:flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors">
+            <button className="hidden sm:flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors" suppressHydrationWarning>
               <Heart size={20} />
             </button>
             <Link

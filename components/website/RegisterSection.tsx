@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, User, Phone, ChevronRight, CheckCircle } from 'lucide-react';
 
 export default function RegisterSection() {
@@ -25,7 +27,7 @@ export default function RegisterSection() {
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Account Created!</h2>
           <p className="text-gray-500 mb-6">Welcome to WebAds.lk! Your account is ready.</p>
-          <Link to="/" className="bg-[#1a237e] hover:bg-[#283593] text-white font-bold py-3 px-8 rounded-xl transition-colors">
+          <Link href="/" className="bg-[#1a237e] hover:bg-[#283593] text-white font-bold py-3 px-8 rounded-xl transition-colors">
             Start Browsing
           </Link>
         </div>
@@ -41,14 +43,14 @@ export default function RegisterSection() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
       <div className="w-full max-w-md">
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6 justify-center">
-          <Link to="/" className="hover:text-[#1a237e]">Home</Link>
+          <Link href="/" className="hover:text-[#1a237e]">Home</Link>
           <ChevronRight size={14} />
           <span className="text-gray-900 font-medium">Register</span>
         </nav>
 
         <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-8">
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center gap-2">
               <div className="bg-[#1a237e] rounded-lg p-2">
                 <span className="text-white font-extrabold text-xl leading-none">W</span>
               </div>
@@ -148,8 +150,8 @@ export default function RegisterSection() {
 
             <p className="text-xs text-gray-500">
               By registering, you agree to our{' '}
-              <Link to="/terms" className="text-[#1a237e] hover:underline">Terms of Use</Link> and{' '}
-              <Link to="/privacy" className="text-[#1a237e] hover:underline">Privacy Policy</Link>.
+              <Link href="/terms" className="text-[#1a237e] hover:underline">Terms of Use</Link> and{' '}
+              <Link href="/privacy" className="text-[#1a237e] hover:underline">Privacy Policy</Link>.
             </p>
 
             <button
@@ -163,7 +165,7 @@ export default function RegisterSection() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#1a237e] font-semibold hover:underline">Sign In</Link>
+            <Link href="/login" className="text-[#1a237e] font-semibold hover:underline">Sign In</Link>
           </p>
         </div>
       </div>
