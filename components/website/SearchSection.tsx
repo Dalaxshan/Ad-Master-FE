@@ -1,17 +1,22 @@
-import { useState, useMemo } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import { SlidersHorizontal, Grid2X2, List, X, ChevronDown } from 'lucide-react';
-import { ads } from '../data/ads';
-import { categories, districts } from '../data/categories';
-import AdCard from '../components/AdCard';
+'use client';
 
-export default function SearchPage() {
-  const [searchParams] = useSearchParams();
+import { useState, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { SlidersHorizontal, Grid2X2, List, X, ChevronDown } from 'lucide-react';
+import { ads } from '@/data/ads';
+import { categories, districts } from '@/data/categories';
+import AdCard from '@/components/website/AdCard';
+
+export default function SearchSection() {
+  const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const districtParam = searchParams.get('district') || '';
+  const categoryParam = searchParams.get('category') || '';
+  const subcategoryParam = searchParams.get('subcategory') || '';
 
   const [layout, setLayout] = useState<'grid' | 'list'>('grid');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(categoryParam);
   const [selectedDistrict, setSelectedDistrict] = useState(districtParam);
   const [sortBy, setSortBy] = useState('newest');
   const [minPrice, setMinPrice] = useState('');
@@ -21,14 +26,15 @@ export default function SearchPage() {
   const filtered = useMemo(() => {
     let result = [...ads];
     if (query) result = result.filter(a => a.title.toLowerCase().includes(query.toLowerCase()) || a.description.toLowerCase().includes(query.toLowerCase()));
-    if (selectedCategory) result = result.filter(a => a.category === selectedCategory);
+    if (selectedCategory) result = result.filter(a => a.category === selectedCategory || a.category?.toLowerCase() === selectedCategory.toLowerCase());
+    if (subcategoryParam) result = result.filter(a => a.subcategory?.toLowerCase() === subcategoryParam.toLowerCase());
     if (selectedDistrict && selectedDistrict !== 'All Sri Lanka') result = result.filter(a => a.district === selectedDistrict);
     if (minPrice) result = result.filter(a => a.price !== null && a.price >= Number(minPrice));
     if (maxPrice) result = result.filter(a => a.price !== null && a.price <= Number(maxPrice));
     if (sortBy === 'price-asc') result.sort((a, b) => (a.price || 0) - (b.price || 0));
     else if (sortBy === 'price-desc') result.sort((a, b) => (b.price || 0) - (a.price || 0));
     return result;
-  }, [query, selectedCategory, selectedDistrict, sortBy, minPrice, maxPrice]);
+  }, [query, selectedCategory, selectedDistrict, sortBy, minPrice, maxPrice, subcategoryParam]);
 
   const activeFilters = [
     selectedCategory && { label: selectedCategory, clear: () => setSelectedCategory('') },
@@ -43,7 +49,7 @@ export default function SearchPage() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-gray-900">
-            {query ? `Results for "${query}"` : selectedCategory || 'All Ads'}
+            {query ? `Results for "${query}"` : subcategoryParam || selectedCategory || categoryParam || 'All Ads'}
           </h1>
           <p className="text-gray-500 text-sm mt-1">{filtered.length} ads found{selectedDistrict && selectedDistrict !== 'All Sri Lanka' ? ` in ${selectedDistrict}` : ' in Sri Lanka'}</p>
         </div>
@@ -188,7 +194,7 @@ export default function SearchPage() {
                 <p className="text-5xl mb-4">🔍</p>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">No ads found</h3>
                 <p className="text-gray-500 text-sm mb-6">Try adjusting your search or filters</p>
-                <Link to="/" className="bg-[#1a237e] text-white font-semibold px-6 py-2.5 rounded-xl hover:bg-[#283593] transition-colors text-sm">
+                <Link href="/" className="bg-[#1a237e] text-white font-semibold px-6 py-2.5 rounded-xl hover:bg-[#283593] transition-colors text-sm">
                   Back to Home
                 </Link>
               </div>

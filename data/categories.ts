@@ -1,4 +1,5 @@
-import { Category, District } from '../types';
+import { Category, District } from "@/type";
+
 
 export const categories: Category[] = [
   {

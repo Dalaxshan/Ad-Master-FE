@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, User, Phone, ChevronRight, CheckCircle } from 'lucide-react';
 
-export default function RegisterPage() {
+export default function RegisterSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', password: '', confirm: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, ChevronRight } from 'lucide-react';
 
-export default function LoginPage() {
+export default function LoginSection() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -113,7 +113,7 @@ export default function LoginPage() {
           </div>
 
           <p className="text-center text-sm text-gray-500 mt-6">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link to="/register" className="text-[#1a237e] font-semibold hover:underline">Register Free</Link>
           </p>
         </div>

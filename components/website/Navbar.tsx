@@ -1,8 +1,11 @@
+'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, MapPin, Menu, X, ChevronDown, Bell, Heart, Plus, User } from 'lucide-react';
-import { districts } from '../data/categories';
+import { districts } from '../../data/categories';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,7 +26,7 @@ export default function Navbar() {
       {/* Top bar */}
       <div className="bg-[#1a237e] text-white">
         <div className="max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between text-xs">
-          <span className="hidden sm:block">🇱🇰 Sri Lanka's #1 Online Marketplace</span>
+          <span className="hidden sm:block">🇱🇰 Sri Lanka&apos;s #1 Online Marketplace</span>
           <div className="flex items-center gap-4 ml-auto">
             <Link href="/login" className="hover:text-yellow-300 transition-colors">Sign In</Link>
             <Link href="/register" className="hover:text-yellow-300 transition-colors">Register</Link>
@@ -37,15 +40,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="flex items-center gap-2">
-              <div className="bg-[#1a237e] rounded-lg p-2">
-                <span className="text-white font-bold text-lg leading-none">W</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-[#1a237e] font-extrabold text-xl tracking-tight">WebAds</span>
-                <span className="text-yellow-500 font-extrabold text-xl">.lk</span>
-              </div>
-            </div>
+            <Image src="/logo.png" alt="WebAds.lk" width={150} height={60} className="rounded-lg" />
           </Link>
 
           {/* Search bar */}
@@ -103,7 +98,7 @@ export default function Navbar() {
               <Heart size={20} />
             </button>
             <Link
-              href="/post-ad"
+              href="/ad"
               className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-4 py-2.5 rounded-lg text-sm transition-colors shadow-sm"
             >
               <Plus size={16} />

@@ -1,9 +1,12 @@
+'use client';
+ 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import { ChevronRight, TrendingUp, Shield, Zap, Users, Star, ArrowRight, Tag } from 'lucide-react';
-import { categories } from '../data/categories';
-import { ads, featuredAds } from '../data/ads';
-import AdCard from '../components/AdCard';
+import Link from 'next/link';
+import { ads, featuredAds } from '@/data/ads';
+import AdCard from './AdCard';
+import { categories } from '@/data/categories';
 
 const heroStats = [
   { label: 'Active Ads', value: '120,000+' },
@@ -12,7 +15,7 @@ const heroStats = [
   { label: 'Daily Visitors', value: '45,000+' },
 ];
 
-export default function HomePage() {
+export const Home=()=> {
   const [activeTab, setActiveTab] = useState<'featured' | 'recent'>('featured');
 
   const displayedAds = activeTab === 'featured' ? featuredAds : ads;
@@ -31,7 +34,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[#1a237e]/85" />
         <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/30 rounded-full px-4 py-1.5 text-yellow-300 text-sm font-medium mb-6">
-            <Star size={14} fill="currentColor" /> Sri Lanka's #1 Online Marketplace
+            <Star size={14} fill="currentColor" /> Sri Lanka&apos;s #1 Online Marketplace
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight mb-4 max-w-3xl mx-auto">
             Buy & Sell Anything<br />
@@ -53,13 +56,13 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/post-ad"
+              href="/post-ad"
               className="bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-8 py-3.5 rounded-xl transition-colors shadow-xl text-base"
             >
               Post Free Ad
             </Link>
             <Link
-              to="/search"
+              href="/search"
               className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
             >
               Browse All Ads
@@ -93,9 +96,9 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900">Browse by Category</h2>
-              <p className="text-gray-500 text-sm mt-1">Find exactly what you're looking for</p>
+              <p className="text-gray-500 text-sm mt-1">Find exactly what you&apos;re looking for</p>
             </div>
-            <Link to="/categories" className="flex items-center gap-1 text-sm text-[#1a237e] font-semibold hover:underline">
+            <Link href="/categories" className="flex items-center gap-1 text-sm text-[#1a237e] font-semibold hover:underline">
               All Categories <ChevronRight size={16} />
             </Link>
           </div>
@@ -103,7 +106,7 @@ export default function HomePage() {
             {categories.map(cat => (
               <Link
                 key={cat.id}
-                to={`/category/${cat.id}`}
+                href={`/category/${cat.id}`}
                 className="group bg-white border border-gray-100 rounded-xl p-4 text-center hover:shadow-md hover:border-blue-200 transition-all duration-200"
               >
                 <div className={`w-12 h-12 ${cat.color} rounded-xl flex items-center justify-center text-2xl mx-auto mb-2 group-hover:scale-110 transition-transform`}>
@@ -126,7 +129,7 @@ export default function HomePage() {
                 <span className="bg-yellow-400 text-[#1a237e] text-xs font-bold px-2 py-1 rounded-md mb-3 inline-block">LIMITED OFFER</span>
                 <h3 className="text-2xl font-bold mb-1">Boost Your Ads</h3>
                 <p className="text-blue-200 text-sm mb-4">Get 3x more visibility with our Premium listings</p>
-                <Link to="/pricing" className="bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-5 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
+                <Link href="/pricing" className="bg-yellow-400 hover:bg-yellow-500 text-[#1a237e] font-bold px-5 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
                   View Plans <ArrowRight size={14} />
                 </Link>
               </div>
@@ -137,7 +140,7 @@ export default function HomePage() {
               <Tag size={28} className="mb-3 opacity-80" />
               <h3 className="text-xl font-bold mb-1">Post for Free</h3>
               <p className="text-green-100 text-sm mb-4">List your items in under 2 minutes</p>
-              <Link to="/post-ad" className="bg-white/20 hover:bg-white/30 font-semibold px-4 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
+              <Link href="/post-ad" className="bg-white/20 hover:bg-white/30 font-semibold px-4 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
                 Get Started <ArrowRight size={14} />
               </Link>
             </div>
@@ -177,7 +180,7 @@ export default function HomePage() {
 
           <div className="text-center mt-8">
             <Link
-              to="/search"
+              href="/search"
               className="inline-flex items-center gap-2 bg-[#1a237e] hover:bg-[#283593] text-white font-semibold px-8 py-3 rounded-xl transition-colors"
             >
               View All Ads <ArrowRight size={18} />
@@ -207,7 +210,7 @@ export default function HomePage() {
             ].map(d => (
               <Link
                 key={d.name}
-                to={`/search?district=${d.name}`}
+                href={`/search?district=${d.name}`}
                 className="bg-white border border-gray-100 hover:border-blue-200 hover:shadow-md rounded-xl p-4 text-center transition-all group"
               >
                 <span className="text-2xl">{d.emoji}</span>

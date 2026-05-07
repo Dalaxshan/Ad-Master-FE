@@ -1,8 +1,11 @@
+"use client";
+
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Heart, Bell, Settings, LogOut, Plus, Eye, Clock, ChevronRight, Star, Shield, Edit2 } from 'lucide-react';
-import { ads } from '../data/ads';
-import AdCard from '../components/AdCard';
+import AdCard from './AdCard';
+import { ads } from '@/data/ads';
+import Link from 'next/link';
+
 
 const tabs = [
   { id: 'my-ads', label: 'My Ads', icon: <Eye size={16} /> },
@@ -18,7 +21,7 @@ const notifications = [
   { id: 4, type: 'system', text: 'Your featured ad will expire in 2 days. Renew now for continued visibility.', time: '1 day ago', read: true },
 ];
 
-export default function ProfilePage() {
+export default function ProfileSection() {
   const [activeTab, setActiveTab] = useState('my-ads');
   const myAds = ads.slice(0, 4);
   const savedAds = ads.slice(4, 8);
@@ -104,7 +107,7 @@ export default function ProfilePage() {
                 <div className="flex items-center justify-between mb-5">
                   <h2 className="text-xl font-bold text-gray-900">My Ads</h2>
                   <Link
-                    to="/post-ad"
+                    href="/post-ad"
                     className="flex items-center gap-2 bg-[#1a237e] text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-[#283593] transition-colors"
                   >
                     <Plus size={16} /> Post New Ad

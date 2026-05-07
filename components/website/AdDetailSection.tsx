@@ -1,14 +1,17 @@
-import { useParams, Link } from 'react-router-dom';
+"use client";
+
 import { MapPin, Clock, Eye, Heart, Share2, Flag, Phone, MessageCircle, ChevronRight, Shield, Star, ArrowLeft } from 'lucide-react';
-import { ads } from '../data/ads';
-import AdCard from '../components/AdCard';
+import { ads } from '../../data/ads';
+import AdCard from './AdCard';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 function formatPrice(price: number | null, label?: string): string {
   if (price === null) return 'Negotiable';
   return `Rs. ${price.toLocaleString()}${label || ''}`;
 }
 
-export default function AdDetailPage() {
+export default function AdDetailSection() {
   const { id } = useParams();
   const ad = ads.find(a => a.id === Number(id));
   const related = ads.filter(a => a.category === ad?.category && a.id !== ad?.id).slice(0, 4);
@@ -19,7 +22,7 @@ export default function AdDetailPage() {
         <div className="text-center">
           <p className="text-5xl mb-4">😕</p>
           <h2 className="text-xl font-bold text-gray-900 mb-2">Ad not found</h2>
-          <Link to="/" className="text-[#1a237e] font-semibold hover:underline">Back to Home</Link>
+          <Link href="/" className="text-[#1a237e] font-semibold hover:underline">Back to Home</Link>
         </div>
       </div>
     );
@@ -30,9 +33,9 @@ export default function AdDetailPage() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-[#1a237e] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#1a237e] transition-colors">Home</Link>
           <ChevronRight size={14} />
-          <Link to={`/category/${ad.category.toLowerCase()}`} className="hover:text-[#1a237e] transition-colors">{ad.category}</Link>
+          <Link href={`/category/${ad.category.toLowerCase()}`} className="hover:text-[#1a237e] transition-colors">{ad.category}</Link>
           <ChevronRight size={14} />
           <span className="text-gray-800 font-medium truncate max-w-xs">{ad.title}</span>
         </nav>
@@ -63,7 +66,7 @@ export default function AdDetailPage() {
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-sm">
-                    <Link to={`/category/${ad.category.toLowerCase()}`} className="text-[#1a237e] font-medium hover:underline">{ad.category}</Link>
+                    <Link href={`/category/${ad.category.toLowerCase()}`} className="text-[#1a237e] font-medium hover:underline">{ad.category}</Link>
                     <ChevronRight size={14} className="text-gray-400" />
                     <span className="text-gray-500">{ad.subcategory}</span>
                   </div>
@@ -160,7 +163,7 @@ export default function AdDetailPage() {
               </div>
 
               <div className="mt-5 pt-5 border-t border-gray-100">
-                <Link to={`/search?seller=${ad.seller}`} className="text-sm text-[#1a237e] font-semibold hover:underline flex items-center gap-1 justify-center">
+                <Link href={`/search?seller=${ad.seller}`} className="text-sm text-[#1a237e] font-semibold hover:underline flex items-center gap-1 justify-center">
                   View all ads by this seller <ChevronRight size={14} />
                 </Link>
               </div>
@@ -192,7 +195,7 @@ export default function AdDetailPage() {
           <section className="mt-10">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-xl font-bold text-gray-900">Similar Ads</h2>
-              <Link to={`/category/${ad.category.toLowerCase()}`} className="text-sm text-[#1a237e] font-semibold hover:underline flex items-center gap-1">
+              <Link href={`/category/${ad.category.toLowerCase()}`} className="text-sm text-[#1a237e] font-semibold hover:underline flex items-center gap-1">
                 View More <ChevronRight size={14} />
               </Link>
             </div>

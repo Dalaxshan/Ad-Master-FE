@@ -1,11 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
 import { ChevronRight, Grid2X2, List } from 'lucide-react';
 import { useState } from 'react';
-import { categories } from '../data/categories';
-import { ads } from '../data/ads';
-import AdCard from '../components/AdCard';
+import { categories } from '../../data/categories';
+import { ads } from '../../data/ads';
+import AdCard from './AdCard';
 
-export default function CategoryPage() {
+export default function CategorySection() {
   const { id } = useParams();
   const [layout, setLayout] = useState<'grid' | 'list'>('grid');
   const category = categories.find(c => c.id === id);
