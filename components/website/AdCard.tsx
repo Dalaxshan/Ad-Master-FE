@@ -10,9 +10,9 @@ interface AdCardProps {
 
 function createAdSlug(title: string): string {
   return title
-    .trim()
-    .replace(/\s+/g, "-20")
-    .replace(/[^a-zA-Z0-9-]/g, "");
+    .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
 }
 
 function formatPrice(price: number | null, label?: string): string {

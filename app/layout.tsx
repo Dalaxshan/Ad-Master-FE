@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AD Master",
+  title: "AD Master - Sri Lanka's Online Marketplace",
   description: "Your Ultimate Advertising Solution",
 };
 

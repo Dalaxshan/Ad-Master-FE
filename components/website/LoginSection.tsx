@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function LoginSection() {
   const [email, setEmail] = useState('');
@@ -33,11 +34,7 @@ export default function LoginSection() {
           {/* Logo */}
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-2">
-              <div className="bg-[#1a237e] rounded-lg p-2">
-                <span className="text-white font-extrabold text-xl leading-none">W</span>
-              </div>
-              <span className="text-[#1a237e] font-extrabold text-2xl">AdMaster</span>
-              <span className="text-yellow-500 font-extrabold text-2xl">.lk</span>
+             <Image src="/logo.png" alt="AD Master Logo" width={180} height={12} />
             </Link>
             <h1 className="text-xl font-bold text-gray-900 mt-4">Welcome back</h1>
             <p className="text-gray-500 text-sm mt-1">Sign in to manage your ads</p>
