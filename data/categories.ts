@@ -45,7 +45,7 @@ export const categories: Category[] = [
   {
     id: 'home-garden',
     name: 'Home & Garden',
-    icon: '🛋️',
+    icon: '🏡',
     count: 1756,
     color: 'bg-yellow-50 text-yellow-600 border-yellow-100',
     subcategories: ['Furniture', 'Appliances', 'Kitchen', 'Garden', 'Decor', 'Tools & DIY', 'Bedding'],
