@@ -156,13 +156,13 @@ export default function Navbar() {
 
           {/* Right actions - hidden on mobile */}
           <div className="hidden md:flex items-center gap-2 flex-shrink-0">
-            <button
+            {/* <button
               className="flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors relative"
               suppressHydrationWarning
             >
               <Bell size={20} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-            </button>
+            </button> */}
             <button
               className="flex items-center justify-center w-9 h-9 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
               suppressHydrationWarning

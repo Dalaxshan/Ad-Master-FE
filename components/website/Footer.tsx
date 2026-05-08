@@ -179,7 +179,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} AdMaster.lk. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} venrtax.lk. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link
               href="/terms"
