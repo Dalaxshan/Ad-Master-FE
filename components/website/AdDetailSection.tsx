@@ -91,7 +91,7 @@ export default function AdDetailSection() {
           </Link>
           <ChevronRight size={14} />
           <Link
-            href={`/category/${ad.category.toLowerCase()}`}
+            href={`/category/${createAdSlug(ad.category)}`}
             className="hover:text-[#1a237e] transition-colors"
           >
             {ad.category}
@@ -140,7 +140,7 @@ export default function AdDetailSection() {
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-sm">
                     <Link
-                      href={`/category/${ad.category.toLowerCase()}`}
+                      href={`/category/${createAdSlug(ad.category)}`}
                       className="text-[#1a237e] font-medium hover:underline"
                     >
                       {ad.category}
