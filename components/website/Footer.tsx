@@ -99,10 +99,10 @@ export default function Footer() {
                 { label: "Sign In", href: "/login" },
                 { label: "Register", href: "/register" },
                 { label: "My Account", href: "/profile" },
-                { label: "Saved Ads", href: "/saved" },
-                { label: "Safety Tips", href: "/safety" },
-                { label: "Advertise with Us", href: "/advertise" },
-                { label: "Sitemap", href: "/sitemap" },
+                { label: "Saved Ads", href: "/coming-soon" },
+                { label: "Safety Tips", href: "/coming-soon" },
+                { label: "Advertise with Us", href: "/coming-soon" },
+                { label: "Sitemap", href: "/coming-soon" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
@@ -162,13 +162,13 @@ export default function Footer() {
 
             <div className="mt-4 flex gap-2">
               <a
-                href="#"
+                href="/coming-soon"
                 className="flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 transition-colors rounded-lg px-3 py-2"
               >
                 <ExternalLink size={12} /> App Store
               </a>
               <a
-                href="#"
+                href="/coming-soon"
                 className="flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 transition-colors rounded-lg px-3 py-2"
               >
                 <ExternalLink size={12} /> Google Play
@@ -182,19 +182,19 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} venrtax.lk. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link
-              href="/terms"
+              href="/coming-soon"
               className="hover:text-gray-300 transition-colors"
             >
               Terms of Use
             </Link>
             <Link
-              href="/privacy"
+              href="/coming-soon"
               className="hover:text-gray-300 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/cookies"
+              href="/coming-soon"
               className="hover:text-gray-300 transition-colors"
             >
               Cookie Policy
