@@ -13,6 +13,7 @@ export interface Ad {
   isPremium: boolean;
   description: string;
   seller: string;
+  contact: string;
   views: number;
 }
 
