@@ -98,7 +98,7 @@ export const Home=()=> {
               <h2 className="text-2xl font-bold text-gray-900">Browse by Category</h2>
               <p className="text-gray-500 text-sm mt-1">Find exactly what you&apos;re looking for</p>
             </div>
-            <Link href="/categories" className="flex items-center gap-1 text-sm text-[#1a237e] font-semibold hover:underline">
+            <Link href="/search" className="flex items-center gap-1 text-sm text-[#1a237e] font-semibold hover:underline">
               All Categories <ChevronRight size={16} />
             </Link>
           </div>
@@ -138,7 +138,7 @@ export const Home=()=> {
             <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-white relative overflow-hidden">
               <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full" />
               <Tag size={28} className="mb-3 opacity-80" />
-              <h3 className="text-xl font-bold mb-1">Post for Free</h3>
+              <h3 className="text-xl font-bold mb-1">Post Your Ads</h3>
               <p className="text-green-100 text-sm mb-4">List your items in under 2 minutes</p>
               <Link href="/ad" className="bg-white/20 hover:bg-white/30 font-semibold px-4 py-2 rounded-lg text-sm transition-colors inline-flex items-center gap-1">
                 Get Started <ArrowRight size={14} />
@@ -191,24 +191,24 @@ export const Home=()=> {
         </section>
 
         {/* Top Districts */}
-        <section className="mb-12">
+        {/* <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Browse by District</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {[
-              { name: 'Colombo', count: '45,210', emoji: '🏙️' },
+              { name: 'Colombo', count: '45,210', emoji: '🏢' },
               { name: 'Gampaha', count: '18,430', emoji: '🌳' },
-              { name: 'Kandy', count: '12,880', emoji: '🏔️' },
+              { name: 'Kandy', count: '12,880', emoji: '🗻' },
               { name: 'Galle', count: '9,540', emoji: '🌊' },
               { name: 'Matara', count: '6,320', emoji: '🌴' },
               { name: 'Kurunegala', count: '7,890', emoji: '🌾' },
-              { name: 'Jaffna', count: '5,120', emoji: '🎭' },
+              { name: 'Jaffna', count: '5,120', emoji: '⛪' },
               { name: 'Ratnapura', count: '4,670', emoji: '💎' },
               { name: 'Anuradhapura', count: '5,830', emoji: '🏛️' },
               { name: 'Badulla', count: '3,940', emoji: '☕' },
               { name: 'Trincomalee', count: '3,210', emoji: '⚓' },
-              { name: 'Batticaloa', count: '2,880', emoji: '🌅' },
+              { name: 'Batticaloa', count: '2,880', emoji: '🎣' },
             ].map(d => (
               <Link
                 key={d.name}
@@ -221,18 +221,18 @@ export const Home=()=> {
               </Link>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Why Choose Us */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">Why Choose WebAds.lk?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">Why Choose AdMaster.lk?</h2>
           <p className="text-gray-500 text-center text-sm mb-8">The trusted platform for Sri Lankan buyers and sellers</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               {
-                icon: '🆓',
-                title: 'Post Ads for Free',
-                desc: 'List your items completely free of charge. No hidden fees, no subscription required.',
+                icon: '📰',
+                title: 'Post Ads for Simply',
+                desc: 'List your items completely cheapest price. No hidden fees, no subscription required.',
               },
               {
                 icon: '🔒',
@@ -252,7 +252,7 @@ export const Home=()=> {
               {
                 icon: '📱',
                 title: 'Mobile Friendly',
-                desc: 'Use WebAds.lk on any device. Download our app for the best experience.',
+                desc: 'Use AdMaster.lk on any device. Download our app for the best experience.',
               },
               {
                 icon: '🤝',
@@ -276,7 +276,7 @@ export const Home=()=> {
             <div className="absolute right-0 bottom-0 w-48 h-48 bg-yellow-400/10 rounded-full translate-x-16 translate-y-16" />
             <div className="relative">
               <p className="text-yellow-400 font-semibold text-sm mb-2">📱 Now Available</p>
-              <h2 className="text-3xl font-extrabold mb-2">Get the WebAds.lk App</h2>
+              <h2 className="text-3xl font-extrabold mb-2">Get the AdMaster.lk App</h2>
               <p className="text-blue-200 text-base mb-6 max-w-md mx-auto">
                 Buy and sell on the go. Get instant notifications for new ads and messages.
               </p>
