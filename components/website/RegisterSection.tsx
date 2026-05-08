@@ -26,7 +26,7 @@ export default function RegisterSection() {
             <CheckCircle size={40} className="text-green-500" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Account Created!</h2>
-          <p className="text-gray-500 mb-6">Welcome to WebAds.lk! Your account is ready.</p>
+          <p className="text-gray-500 mb-6">Welcome to AdMaster.lk! Your account is ready.</p>
           <Link href="/" className="bg-[#1a237e] hover:bg-[#283593] text-white font-bold py-3 px-8 rounded-xl transition-colors">
             Start Browsing
           </Link>
@@ -54,7 +54,7 @@ export default function RegisterSection() {
               <div className="bg-[#1a237e] rounded-lg p-2">
                 <span className="text-white font-extrabold text-xl leading-none">W</span>
               </div>
-              <span className="text-[#1a237e] font-extrabold text-2xl">WebAds</span>
+              <span className="text-[#1a237e] font-extrabold text-2xl">AdMaster</span>
               <span className="text-yellow-500 font-extrabold text-2xl">.lk</span>
             </Link>
             <h1 className="text-xl font-bold text-gray-900 mt-4">Create your account</h1>
