@@ -36,7 +36,7 @@ export default function LoginSection() {
               <div className="bg-[#1a237e] rounded-lg p-2">
                 <span className="text-white font-extrabold text-xl leading-none">W</span>
               </div>
-              <span className="text-[#1a237e] font-extrabold text-2xl">WebAds</span>
+              <span className="text-[#1a237e] font-extrabold text-2xl">AdMaster</span>
               <span className="text-yellow-500 font-extrabold text-2xl">.lk</span>
             </Link>
             <h1 className="text-xl font-bold text-gray-900 mt-4">Welcome back</h1>
