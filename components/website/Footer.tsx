@@ -34,7 +34,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
              
-                <Image src="/logo.png" alt="WebAds Logo" width={184} height={24} />
+                <Image src="/logo.png" alt="AdMaster Logo" width={184} height={24} />
           
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-5">
@@ -145,10 +145,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-yellow-400 flex-shrink-0" />
                 <a
-                  href="mailto:info@webads.lk"
+                  href="mailto:info@AdMaster.lk"
                   className="hover:text-white transition-colors"
                 >
-                  info@webads.lk
+                  info@AdMaster.lk
                 </a>
               </li>
             </ul>
@@ -179,7 +179,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} WebAds.lk. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AdMaster.lk. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link
               href="/terms"

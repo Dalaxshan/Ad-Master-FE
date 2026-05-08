@@ -8,15 +8,24 @@ interface AdCardProps {
   layout?: "grid" | "list";
 }
 
+function createAdSlug(title: string): string {
+  return title
+    .trim()
+    .replace(/\s+/g, "-20")
+    .replace(/[^a-zA-Z0-9-]/g, "");
+}
+
 function formatPrice(price: number | null, label?: string): string {
   if (price === null) return "Negotiable";
   return `Rs. ${price.toLocaleString()}${label || ""}`;
 }
 
 export default function AdCard({ ad, layout = "grid" }: AdCardProps) {
+  const adSlug = createAdSlug(ad.title);
+
   if (layout === "list") {
     return (
-      <Link href={`/ad/${ad.id}`} className="group block">
+      <Link href={`/ad/${adSlug}`} className="group block">
         <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-md hover:border-blue-100 transition-all duration-200 flex gap-4 p-3">
           <div className="relative flex-shrink-0 w-36 h-28 rounded-lg overflow-hidden bg-gray-100">
             <Image
@@ -75,13 +84,14 @@ export default function AdCard({ ad, layout = "grid" }: AdCardProps) {
   }
 
   return (
-    <Link href={`/ad/${ad.id}`} className="group block">
+    <Link href={`/ad/${adSlug}`} className="group block">
       <div className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg hover:border-blue-100 transition-all duration-200 h-full flex flex-col">
         <div className="relative overflow-hidden bg-gray-100 h-44">
-          <img
+          <Image
             src={ad.image}
             alt={ad.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {ad.isPremium && (
             <span className="absolute top-2 left-2 bg-yellow-400 text-[#1a237e] text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
