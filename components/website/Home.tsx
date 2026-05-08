@@ -355,7 +355,7 @@ export const Home = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href="#"
+                  href="/coming-soon"
                   className="flex items-center gap-3 bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-900 transition-colors"
                 >
                   <span className="text-2xl">🍎</span>
@@ -365,7 +365,7 @@ export const Home = () => {
                   </div>
                 </a>
                 <a
-                  href="#"
+                  href="/coming-soon"
                   className="flex items-center gap-3 bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-900 transition-colors"
                 >
                   <span className="text-2xl">▶</span>

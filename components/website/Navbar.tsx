@@ -55,7 +55,7 @@ export default function Navbar() {
               Register
             </Link>
             <Link
-              href="/help"
+              href="/coming-soon"
               className="hover:text-yellow-300 transition-colors hidden sm:block"
             >
               Help
@@ -76,6 +76,7 @@ export default function Navbar() {
                 alt="AdMaster.lk"
                 width={150}
                 height={120}
+                loading="eager"
                 className="rounded-lg w-24 sm:w-28 md:w-36"
                 style={{ height: "auto" }}
               />
@@ -251,7 +252,7 @@ export default function Navbar() {
                 My Profile
               </Link>
               <Link
-                href="/saved"
+                href="/coming-soon"
                 className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg"
               >
                 Saved Ads
