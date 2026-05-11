@@ -9,12 +9,11 @@ import {
   Menu,
   X,
   ChevronDown,
-  Bell,
   Heart,
   Plus,
   User,
 } from "lucide-react";
-import { districts } from "../../data/categories";
+import { categories, districts } from "../../data/categories";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -27,8 +26,11 @@ export default function Navbar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      const districtSlug =
+        districts.find((d) => d.name === selectedDistrict)?.districtSlug ||
+        "all";
       router.push(
-        `/search?q=${encodeURIComponent(searchQuery)}&district=${encodeURIComponent(selectedDistrict)}`,
+        `/search?q=${encodeURIComponent(searchQuery)}&district=${districtSlug}`,
       );
     }
   };
@@ -191,24 +193,13 @@ export default function Navbar() {
       <div className="border-t border-gray-100 bg-white w-full">
         <div className="w-full px-6">
           <nav className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-1">
-            {[
-              { label: "Vehicles", href: "/category/vehicles" },
-              { label: "Property", href: "/category/property" },
-              { label: "Electronics", href: "/category/electronics" },
-              { label: "Jobs", href: "/category/jobs" },
-              { label: "Services", href: "/category/services" },
-              { label: "Home & Garden", href: "/category/home-garden" },
-              { label: "Animals & Pets", href: "/category/animals-pets" },
-              { label: "Fashion", href: "/category/fashion" },
-              { label: "Business", href: "/category/business" },
-              { label: "Education", href: "/category/education" },
-            ].map((item) => (
+            {categories.slice(0, 10).map((cat) => (
               <Link
-                key={item.href}
-                href={item.href}
-                className="flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#1a237e] hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap"
+                key={cat.id}
+                href={`/category/${cat.slug}`}
+                className="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#1a237e] hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap"
               >
-                {item.label}
+                {cat.icon} {cat.name}
               </Link>
             ))}
           </nav>

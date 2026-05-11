@@ -7,7 +7,7 @@ export const ads: Ad[] = [
     title: 'Toyota Aqua Hybrid 2018 – Low Mileage, Excellent Condition',
     price: 8500000,
     location: 'Colombo 05',
-    district: 'Colombo',
+    district: 'Nuwara Eliya',
     category: 'Vehicles',
     subcategory: 'Cars',
     image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg',

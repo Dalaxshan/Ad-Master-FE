@@ -329,15 +329,15 @@ export default function PostAdSection() {
                   <div className="flex flex-wrap gap-2">
                     {selectedCat.subcategories.map((sub) => (
                       <button
-                        key={sub}
-                        onClick={() => update("subcategory", sub)}
+                        key={sub.subSlug}
+                        onClick={() => update("subcategory", sub.subSlug)}
                         className={`px-3 py-1.5 rounded-lg border text-sm font-medium transition-all ${
-                          form.subcategory === sub
+                          form.subcategory === sub.subSlug
                             ? "border-[#1a237e] bg-[#1a237e] text-white"
                             : "border-gray-200 text-gray-600 hover:border-[#1a237e] hover:text-[#1a237e]"
                         }`}
                       >
-                        {sub}
+                        {sub.subName}
                       </button>
                     ))}
                   </div>
