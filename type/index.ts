@@ -20,13 +20,18 @@ export interface Ad {
 export interface Category {
   id: string;
   name: string;
+  slug: string;
   icon: string;
   count: number;
   color: string;
-  subcategories: string[];
+  subcategories: {
+    subName: string;
+    subSlug: string;
+  }[];
 }
 
 export interface District {
   id: string;
   name: string;
+  districtSlug: string;
 }

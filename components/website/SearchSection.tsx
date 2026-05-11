@@ -8,6 +8,10 @@ import { ads } from '@/data/ads';
 import { categories, districts } from '@/data/categories';
 import AdCard from '@/components/website/AdCard';
 
+function createSlug(text: string): string {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 export default function SearchSection() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
@@ -27,14 +31,15 @@ export default function SearchSection() {
     let result = [...ads];
     if (query) result = result.filter(a => a.title.toLowerCase().includes(query.toLowerCase()) || a.description.toLowerCase().includes(query.toLowerCase()));
     if (selectedCategory) result = result.filter(a => a.category === selectedCategory || a.category?.toLowerCase() === selectedCategory.toLowerCase());
-    if (subcategoryParam) result = result.filter(a => a.subcategory?.toLowerCase() === subcategoryParam.toLowerCase());
-    if (selectedDistrict && selectedDistrict !== 'All Sri Lanka') result = result.filter(a => a.district === selectedDistrict);
+    if (subcategoryParam) result = result.filter(a => a.subcategory && createSlug(a.subcategory) === subcategoryParam.toLowerCase());
+    if (districtParam && districtParam !== 'all-sri-lanka') result = result.filter(a => a.district && districts.find(d => d.districtSlug === districtParam)?.name === a.district);
+    else if (selectedDistrict && selectedDistrict !== 'All Sri Lanka') result = result.filter(a => a.district === selectedDistrict);
     if (minPrice) result = result.filter(a => a.price !== null && a.price >= Number(minPrice));
     if (maxPrice) result = result.filter(a => a.price !== null && a.price <= Number(maxPrice));
     if (sortBy === 'price-asc') result.sort((a, b) => (a.price || 0) - (b.price || 0));
     else if (sortBy === 'price-desc') result.sort((a, b) => (b.price || 0) - (a.price || 0));
     return result;
-  }, [query, selectedCategory, selectedDistrict, sortBy, minPrice, maxPrice, subcategoryParam]);
+  }, [query, selectedCategory, selectedDistrict, sortBy, minPrice, maxPrice, subcategoryParam, districtParam]);
 
   const activeFilters = [
     selectedCategory && { label: selectedCategory, clear: () => setSelectedCategory('') },

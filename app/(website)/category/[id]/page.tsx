@@ -13,7 +13,7 @@ export default function CategoryPage() {
   const [layout, setLayout] = useState<'grid' | 'list'>('grid');
 
   const category = categories.find(c => c.id === id);
-  const categoryAds = ads.filter(a => a.category.toLowerCase() === category?.name.toLowerCase());
+  const categoryAds = ads.filter(a => a.category === category?.name);
 
   if (!category) {
     return (
@@ -47,11 +47,11 @@ export default function CategoryPage() {
           <div className="flex flex-wrap gap-2 mt-5">
             {category.subcategories.map(sub => (
               <Link
-                key={sub}
-                href={`/search?category=${category.name}&subcategory=${sub}`}
+                key={sub.subSlug}
+                href={`/search?category=${category.name}&subcategory=${sub.subSlug}`}
                 className="bg-white/70 hover:bg-white border border-white/50 text-gray-700 text-sm px-3 py-1.5 rounded-lg font-medium transition-colors"
               >
-                {sub}
+                {sub.subName}
               </Link>
             ))}
           </div>
