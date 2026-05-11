@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { SlidersHorizontal, Grid2X2, List, X, ChevronDown } from 'lucide-react';
 import { ads } from '@/data/ads';
-import { categories, districts } from '@/data/categories';
+import { districts } from '@/data/categories';
 import AdCard from '@/components/website/AdCard';
 
 function createSlug(text: string): string {
@@ -91,7 +91,7 @@ export default function SearchSection() {
               </div>
 
               {/* Category */}
-              <div className="p-4 border-b border-gray-50">
+              {/* <div className="p-4 border-b border-gray-50">
                 <h4 className="text-sm font-semibold text-gray-700 mb-3">Category</h4>
                 <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
                   <button
@@ -111,7 +111,7 @@ export default function SearchSection() {
                     </button>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* District */}
               <div className="p-4 border-b border-gray-50">

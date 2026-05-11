@@ -48,7 +48,7 @@ export default function CategoryPage() {
             {category.subcategories.map(sub => (
               <Link
                 key={sub.subSlug}
-                href={`/search?category=${category.name}&subcategory=${sub.subSlug}`}
+                href={`/search?category=${category.slug}&subcategory=${sub.subSlug}`}
                 className="bg-white/70 hover:bg-white border border-white/50 text-gray-700 text-sm px-3 py-1.5 rounded-lg font-medium transition-colors"
               >
                 {sub.subName}

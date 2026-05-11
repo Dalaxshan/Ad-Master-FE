@@ -133,7 +133,7 @@ export const Home = () => {
               </p>
             </div>
             <Link
-              href="/categories"
+              href="/category"
               className="flex items-center gap-1 text-sm text-[#1a237e] font-semibold hover:underline"
             >
               All Categories <ChevronRight size={16} />
