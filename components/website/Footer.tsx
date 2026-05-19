@@ -95,14 +95,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               {[
-                { label: "Post a Free Ad", href: "/ad" },
                 { label: "Sign In", href: "/login" },
                 { label: "Register", href: "/register" },
                 { label: "My Account", href: "/profile" },
                 { label: "Saved Ads", href: "/coming-soon" },
-                { label: "Safety Tips", href: "/coming-soon" },
-                { label: "Advertise with Us", href: "/coming-soon" },
-                { label: "Sitemap", href: "/coming-soon" },
+                { label: "Advertise with Us", href: "/ad" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
