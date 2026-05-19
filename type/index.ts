@@ -1,37 +1,59 @@
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  address?: string;
+  district?: string;
+  isVerified: boolean;
+  role: 'admin' | 'seller' | 'customer';
+  ads: Ad[];
+}
+
+export interface PlanDetail {
+  plan: string;
+  startDate: string;
+  endDate: string;
+  amount: number;
+}
+
+export interface BoostAd {
+  boost: string;
+  startDate: string;
+  endDate: string;
+  amount: number;
+}
+
 export interface Ad {
-  id: number;
+  _id: string;
   title: string;
-  price: number | null;
-  priceLabel?: string;
-  location: string;
-  district: string;
-  category: string;
-  subcategory: string;
-  image: string;
-  postedAt: string;
-  isFeatured: boolean;
-  isPremium: boolean;
   description: string;
-  seller: string;
-  contact: string;
-  views: number;
+  price: number;
+  seller: User;
+  images: { url: string; publicId: string }[];
+  plan?: PlanDetail;
+  boostAd: BoostAd[];
+  totalAmount: number;
+  location?: string;
+  district?: string;
+  category: string;
+  subcategory?: string;
+  status: 'active' | 'inactive' | 'pending';
+  createdAt: string;
 }
 
 export interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  icon: string;
-  count: number;
-  color: string;
-  subcategories: {
-    subName: string;
-    subSlug: string;
-  }[];
+  _id: string;
+  categoryName: string;
+  categorySlug: string;
+  subcategory: { _id: string; subcategoryName: string; subcategorySlug: string }[];
 }
 
-export interface District {
-  id: string;
-  name: string;
-  districtSlug: string;
+export interface Order {
+  _id: string;
+  ad: Ad;
+  buyer: User;
+  payment: 'verified' | 'notVerified';
+  orderDate: string;
+  createdAt: string;
 }
