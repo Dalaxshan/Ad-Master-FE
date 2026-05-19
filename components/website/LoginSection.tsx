@@ -4,20 +4,30 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { authApi } from '@/api/auth.api';
+import { useRouter } from 'next/navigation';
 
 export default function LoginSection() {
+   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) { setError('Please fill in all fields.'); return; }
     setError('');
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(false), 5000);
+
+    try {
+      await authApi.login({ email, password });
+      router.push('/');
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    }
   };
 
   return (
